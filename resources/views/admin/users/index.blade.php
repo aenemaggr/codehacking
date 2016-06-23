@@ -13,6 +13,7 @@
          <thead>
            <tr>
                <th>Id</th>
+               <th>Photo</th>
                <th>Name</th>
                <th>Email</th>
                <th>Role</th>
@@ -29,7 +30,10 @@
 
                <tr>
                    <td>{{$user->id}}</td>
-                   <td>{{$user->name}}</td>
+                   {{--DISPLAYING THE USER PHOTOS IN THE TABLE--}}
+                   <td><img height="50" width="70" src="{{$user->photo ? $user->photo->file : 'http://placehold.it/400x400'}}" class="img-responsive img-rounded" alt=""></td>
+                   {{--LINK TO THE EDIT USER WITH ITS $ID--}}
+                   <td><a href="{{route('admin.users.edit',$user->id)}}">{{$user->name}}</a></td>
                    <td>{{$user->email}}</td>
 
            {{-- Using an array $user->role['name'] to get the property because -> is for objects --}}
