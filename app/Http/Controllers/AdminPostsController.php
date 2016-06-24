@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Requests\PostsCreateRequest;
 use App\Photo;
 use App\Post;
+use App\Role;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -37,7 +39,12 @@ class AdminPostsController extends Controller
     public function create()
     {
         //
-        return view('admin.posts.create');
+
+        // Use this for the SELECT option for SELECTING a categories
+        // AND SHOULD BE IN THIS ORDER OR ELSE IT CHANGES THE VALUES OF THE SELECT OPTIONS WITH THE NAME
+        $categories = Category::lists('name','id')->all();
+
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
