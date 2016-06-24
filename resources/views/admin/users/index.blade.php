@@ -7,6 +7,18 @@
 @section('content')
 
 
+    @if(Session::has('deleted_user'))
+
+        <p class="bg bg-danger text-center"><strong>{{session('deleted_user')}}</strong></p>
+
+    @endif
+
+    @if(Session::has('updated_user'))
+
+        <p class="bg bg-success text-center"><strong>{{session('updated_user')}}</strong></p>
+
+    @endif
+
     <h1>Users</h1>
 
      <table class="table">
